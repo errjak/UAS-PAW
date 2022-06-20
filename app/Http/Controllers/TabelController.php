@@ -12,7 +12,7 @@ class TabelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function tabel()
     {
         $data = Tabel::all();
         return view('tabel.index',['title' => 'Tabel'], compact('data'));
@@ -38,9 +38,10 @@ class TabelController extends Controller
     {
         $model = new Tabel;
         $model->nama = $request->nama;
-        $model->nrp = $request->nrp;
-        $model->email = $request->email;
-        $model->alamat = $request->alamat;
+        $model->kelas = $request->kelas;
+        $model->kode = $request->kode;
+        $model->matpel = $request->matpel;
+        $model->jadwal = $request->jadwal;
         $model->save();
 
         return redirect('tabel');
@@ -80,9 +81,10 @@ class TabelController extends Controller
     {
         $model = Tabel::find($id);
         $model->nama = $request->nama;
-        $model->nrp = $request->nrp;
-        $model->email = $request->email;
-        $model->alamat = $request->alamat;
+        $model->kelas = $request->kelas;
+        $model->kode = $request->kode;
+        $model->matpel = $request->matpel;
+        $model->jadwal = $request->jadwal;
         $model->save();
 
         return redirect('tabel');
@@ -105,5 +107,10 @@ class TabelController extends Controller
     public function aboutme()
     {
         return view('aboutme', ['title' => 'about_me']);
+    }
+
+    public function index()
+    {
+        return view('homepage', ['title' => 'homepage']);
     }
 }

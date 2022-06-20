@@ -12,6 +12,6 @@ class Tabel extends Model
     public $table = "tabel";
 
     protected $fillable = [
-        'nama', 'nrp', 'email', 'alamat'
+        'nama', 'kelas', 'kode','matpel','jadwal'
     ];
 }
