@@ -5,18 +5,24 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tabel;
 
-class TabelController extends Controller
+class GuruController extends Controller
 {
+    public function guru()
+    {
+        return view('guru', ['title' => 'Homepage Guru']);
+    }
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function tabel()
+    public function index()
     {
         $data = Tabel::all();
-        return view('tabel.index',['title' => 'Tabel'], compact('data'));
+        return view('tabel3.index3', ['title' => 'Tabel'], compact('data'));
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -24,8 +30,7 @@ class TabelController extends Controller
      */
     public function create()
     {
-        $model = new Tabel;
-        return view('tabel.create', ['title' => 'Input'], compact('model'));
+        //
     }
 
     /**
@@ -36,15 +41,7 @@ class TabelController extends Controller
      */
     public function store(Request $request)
     {
-        $model = new Tabel;
-        $model->nama = $request->nama;
-        $model->kelas = $request->kelas;
-        $model->kode = $request->kode;
-        $model->matpel = $request->matpel;
-        $model->jadwal = $request->jadwal;
-        $model->save();
-
-        return redirect('tabel');
+        //
     }
 
     /**
@@ -66,8 +63,7 @@ class TabelController extends Controller
      */
     public function edit($id)
     {
-        $model = Tabel::find($id);
-        return view('tabel.edit', ['title' => 'Edit'], compact('model'));
+        //
     }
 
     /**
@@ -79,15 +75,7 @@ class TabelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $model = Tabel::find($id);
-        $model->nama = $request->nama;
-        $model->kelas = $request->kelas;
-        $model->kode = $request->kode;
-        $model->matpel = $request->matpel;
-        $model->jadwal = $request->jadwal;
-        $model->save();
-
-        return redirect('tabel');
+        //
     }
 
     /**
@@ -101,16 +89,6 @@ class TabelController extends Controller
         $model = Tabel::find($id);
         $model->delete();
 
-        return redirect('tabel');
-    }
-
-    public function aboutme()
-    {
-        return view('aboutme', ['title' => 'about_me']);
-    }
-
-    public function index()
-    {
-        return view('homepage', ['title' => 'homepage']);
+        return redirect('tabelguru');
     }
 }

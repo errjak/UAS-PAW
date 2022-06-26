@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout2')
 
 @section('content')
 <br/>
@@ -8,20 +8,19 @@
         <div class="card mt-2 mx-auto p-4 bg-light">
             <div class="card-body bg-light">
                 <div class = "container">
-                    <form id="contact-form" method="POST" action="{{ url('tabel/'.$tabel->id) }}">
+                    <form id="contact-form" method="POST" action="{{ url('user') }}">
                     @csrf
-                    <input type="hidden" name="_method" value="PATCH">
                         <div class="controls">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        Nama<input type="text" name="nama" class="form-control" placeholder="Masukkan Nama Anda" value="{{ $tabel->nama }}">
+                                        Nama<input type="text" name="nama" class="form-control" placeholder="Masukkan Nama Anda">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         Kelas<select name="kelas" class="form-select" aria-label="Default select example">
-                                            <option selected value="{{ old('kelas', $tabel->kelas) }}">{{ old('kelas', $tabel->kelas) }}</option>
+                                            <option selected>Pilih Kelas</option>
                                             <option value="VII">VII</option>
                                             <option value="VIII">VIII</option>
                                             <option value="IX">IX</option>
@@ -35,8 +34,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        Ruang<select name="kode" class="form-select" aria-label="Default select example" value="{{ $tabel->kode }}">
-                                            <option selected value="{{ old('kelas', $tabel->kode) }}">{{ old('kelas', $tabel->kode) }}</option>
+                                        Ruang<select name="kode" class="form-select" aria-label="Default select example">
+                                            <option selected>Pilih Ruang</option>
                                             <option value="A">A</option>
                                             <option value="B">B</option>
                                             <option value="C">C</option>
@@ -45,8 +44,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        Mata Pelajaran<select name="matpel" class="form-select" aria-label="Default select example" value="{{ $tabel->matpel }}">
-                                            <option selected value="{{ old('kelas', $tabel->matpel) }}">{{ old('kelas', $tabel->matpel) }}</option>
+                                        Mata Pelajaran<select name="matpel" class="form-select" aria-label="Default select example">
+                                            <option selected>Pilih Mata Pelajaran</option>
                                             <option value="Biologi">Biologi</option>
                                             <option value="Fisika">Fisika</option>
                                             <option value="Kimia">Kimia</option>
@@ -58,7 +57,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        Jadwal<input type="date" name="jadwal" class="form-control" placeholder="Pilih Jadwal Anda" value="{{ $tabel->jadwal }}">
+                                        Jadwal<input type="date" name="jadwal" class="form-control" placeholder="Pilih Jadwal Anda">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -83,5 +82,4 @@
     <!-- /.row-->
     </div>
 </div>
-<br/>
 @endsection

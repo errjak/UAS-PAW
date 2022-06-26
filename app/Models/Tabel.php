@@ -14,4 +14,8 @@ class Tabel extends Model
     protected $fillable = [
         'nama', 'kelas', 'kode','matpel','jadwal'
     ];
+
+    protected $guarded = [
+        'id'
+    ];
 }
